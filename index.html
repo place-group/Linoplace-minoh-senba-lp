@@ -16627,7 +16627,7 @@ class Component extends DCLogic {
           .then((res) => res.json().then((d) => ({ ok: res.ok, data: d })))
           .then((r) => {
             if (r.ok && r.data.success) {
-              this.setState({ sent: true, sending: false });
+              window.location.href = 'thanks.html';
             } else {
               throw new Error((r.data && r.data.message) || 'submit failed');
             }
