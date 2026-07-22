@@ -16710,6 +16710,26 @@ class Component extends DCLogic {
     if (e.target && e.target.closest && e.target.closest('#contact')) save();
   }, true);
 
+  /* CTAタップと送信ボタンのGA4イベント計測 */
+  document.addEventListener('click', function (e) {
+    if (!e.target || !e.target.closest || typeof window.gtag !== 'function') return;
+    var cta = e.target.closest('a[href="#contact"]');
+    if (cta) {
+      var anchors = Array.prototype.slice.call(document.querySelectorAll('a[href="#contact"]'));
+      window.gtag('event', 'cta_click', {
+        cta_text: (cta.innerText || '').trim().slice(0, 50),
+        cta_index: anchors.indexOf(cta) + 1
+      });
+      return;
+    }
+    var submit = e.target.closest('#contact button[type="submit"]');
+    if (submit) {
+      window.gtag('event', 'form_submit_click', {
+        form_name: '無料相談フォーム'
+      });
+    }
+  }, true);
+
   function scrollToHash() {
     // ページはJSで組み立てられるため、#contact等へのアンカーは描画完了後に
     // 手動でスクロールしないと先頭に留まってしまう
