@@ -16547,7 +16547,7 @@ code { padding: 0.1em 0.35em; }
           <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none;position:absolute;left:-9999px" aria-hidden="true">
           <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
           <x-import component-from-global-scope="Ds2ndDesignSystem_d17bea.Input" label="お名前（フルネーム）※" placeholder="例：山田 花子" name="name" required="{{ true }}" hint-size="100%,72px"></x-import>
-          <x-import component-from-global-scope="Ds2ndDesignSystem_d17bea.Input" label="メールアドレス ※" type="email" placeholder="例：example@email.com" hint="※確認メールをお送りいたしますので、正確にご入力ください" name="email" required="{{ true }}" hint-size="100%,92px"></x-import>
+          <x-import component-from-global-scope="Ds2ndDesignSystem_d17bea.Input" label="メールアドレス ※" type="email" placeholder="例：example@email.com" hint="※折り返しのご連絡に使用しますので、正確にご入力ください" name="email" required="{{ true }}" hint-size="100%,92px"></x-import>
           <x-import component-from-global-scope="Ds2ndDesignSystem_d17bea.Input" label="電話番号（日中連絡可能な番号）" type="tel" placeholder="例：09012345678" hint="※ハイフン（-）なしでご入力ください" name="phone" hint-size="100%,92px"></x-import>
           <x-import component-from-global-scope="Ds2ndDesignSystem_d17bea.Select" label="ご相談内容" name="topic" placeholder="一覧から選択してください" options="{{ topicOptions }}" hint-size="100%,72px"></x-import>
           <x-import component-from-global-scope="Ds2ndDesignSystem_d17bea.Textarea" label="補足事項" rows="{{ 5 }}" placeholder="例：
