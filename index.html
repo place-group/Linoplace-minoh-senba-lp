@@ -16547,9 +16547,11 @@ code { padding: 0.1em 0.35em; }
 ・これまでの支援状況
 ・ご希望の支援内容など" hint="お子様の様子や気になることなど、差し支えない範囲でご記入ください。より具体的なご提案をさせていただくことができます。" name="note" hint-size="100%,200px"></x-import>
           <div style="display:flex;justify-content:center">
-            <x-import component-from-global-scope="Ds2ndDesignSystem_d17bea.Checkbox" label="プライバシーポリシーに同意" required="{{ true }}" hint-size="auto,24px"></x-import>
+            <label style="display:inline-flex;align-items:center;gap:10px;cursor:pointer">
+              <input type="checkbox" required="required" name="privacy_agree" value="同意済み" style="width:20px;height:20px;accent-color:var(--marigold-500);margin:0;flex-shrink:0">
+              <span style="font-family:var(--font-body);font-size:var(--fs-body);color:var(--text-body)"><a href="privacy.html" target="_blank" rel="noopener" style="color:var(--marigold-600);text-decoration:underline">プライバシーポリシー</a>に同意</span>
+            </label>
           </div>
-          <p style="margin:-8px 0 0;text-align:center;font-size:var(--fs-caption)"><a href="privacy.html" target="_blank" rel="noopener" style="color:var(--marigold-600)">プライバシーポリシーを読む</a></p>
           <sc-if value="{{ failed }}" hint-placeholder-val="{{ false }}">
             <p style="margin:0;text-align:center;font-size:var(--fs-small);font-weight:var(--fw-bold);color:var(--danger)">送信に失敗しました。通信環境をご確認のうえ、もう一度お試しください。</p>
           </sc-if>
