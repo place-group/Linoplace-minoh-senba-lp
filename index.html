@@ -16701,10 +16701,19 @@ class Component extends DCLogic {
     if (e.target && e.target.closest && e.target.closest('#contact')) save();
   }, true);
 
+  function scrollToHash() {
+    // ページはJSで組み立てられるため、#contact等へのアンカーは描画完了後に
+    // 手動でスクロールしないと先頭に留まってしまう
+    if (!location.hash) return;
+    var target;
+    try { target = document.querySelector(location.hash); } catch (err) { return; }
+    if (target) setTimeout(function () { target.scrollIntoView(); }, 100);
+  }
+
   var tries = 0;
   (function poll() {
     // フォーム本体(名前欄)がReactで描画されてから復元する
-    if (document.querySelector('#contact input[name="name"]')) { restore(); }
+    if (document.querySelector('#contact input[name="name"]')) { restore(); scrollToHash(); }
     else if (++tries < 150) { setTimeout(poll, 200); }
   })();
 })();
